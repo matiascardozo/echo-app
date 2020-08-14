@@ -27,6 +27,10 @@ function App() {
             });
     };
 
+    const clearElement = (index) => {
+      setResponses((prevReponses) => prevReponses.filter((_,i) => i != index))
+    }
+
     return (
         <div className="container d-flex w-100 h-100 p-3 mx-auto flex-column align-center App">
             <header className="masthead mb-auto"></header>
@@ -40,7 +44,7 @@ function App() {
                         />
                     </div>
                     <div className="col-md-6">
-                        <Results results={responses} />
+                        <Results results={responses}  clearElement={clearElement} />
                     </div>
                 </div>
             </main>
