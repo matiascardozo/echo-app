@@ -1,28 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import InputForm from './components/InputForm';
+import axios from 'axios';
+import Results from './components/Results';
 
 function App() {
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
+    const [responses, setResponses] = useState([]);
+
+    const onInputChange = (evt) => {
+        setMessage(evt.target.value);
+    };
+
+    const onSubmit = (evt) => {
+        evt.preventDefault();
+        axios
+            .post('', { message })
+            .then((response) => setResponses((prevReponses) => [...prevReponses, response.data]))
+            .catch((e) => {
+                if (e.response) {
+                    setResponses((prevReponses) => [...prevReponses, e.response.data]);
+                } else {
+                    setError('Unexpected error');
+                }
+            });
+    };
+
     return (
         <div className="container d-flex w-100 h-100 p-3 mx-auto flex-column align-center App">
-            <header className="masthead mb-auto">
-               
-            </header>
+            <header className="masthead mb-auto"></header>
             <main role="main" className="inner cover">
-                <h1 className="cover-heading">Cover your page.</h1>
-                <p className="lead">
-                    Cover is a one-page template for building simple and beautiful home pages.
-                    Download, edit the text, and add your own fullscreen background photo to make it
-                    your own.
-                </p>
-                <p className="lead">
-                    <a href="#" className="btn btn-lg btn-secondary">
-                        Learn more
-                    </a>
-                </p>
+                <div className="row align-items-center">
+                    <div className="col-md-6">
+                        <InputForm
+                            message={message}
+                            onInputChange={onInputChange}
+                            onSubmit={onSubmit}
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <Results results={responses} />
+                    </div>
+                </div>
             </main>
-            <footer className="mastfoot mt-auto">
-                
-            </footer>
+            <footer className="mastfoot mt-auto"></footer>
         </div>
     );
 }
