@@ -2,9 +2,8 @@ import React from 'react';
 
 function InputForm({message, onInputChange, onSubmit}) {
     return (
-        <form className="form-inline" onSubmit={onSubmit}>
+        <form className="form" onSubmit={onSubmit}>
             <div className="form-group">
-                <label className="my-1 mr-2"  for="messageInput">Mensaje</label>
                 <input
                     type="text"
                     className="form-control-sm my-1 mr-sm-2"

@@ -4,8 +4,8 @@ import React from 'react';
 
 function ResultCard({ result, clearElement, index }) {
     return (
-        <div class={`card ${result.statusCode ? 'border-danger' : 'border-success'} mb-2`}>
-            <div class="card-body">
+        <div class={`card ${result.statusCode ? 'border-danger' : 'border-success'} mb-2 border-3`}>
+            <div class="card-body text-dark">
                 <div class="row no-gutters">
                     <div class="col">{result.message}</div>
                     <div class="col-sm-1">

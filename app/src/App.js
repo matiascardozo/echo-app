@@ -24,7 +24,7 @@ function App() {
                 } else {
                     setError('Unexpected error');
                 }
-            });
+            }).finally(() => setMessage(""));
     };
 
     const clearElement = (index) => {
@@ -32,11 +32,16 @@ function App() {
     }
 
     return (
-        <div className="container d-flex w-100 h-100 p-3 mx-auto flex-column align-center App">
-            <header className="masthead mb-auto"></header>
+        <div className="container-fluid background-app ">
+            
+        <div className="container d-flex w-100 h-100 p-3 mx-auto flex-column align-center App ">
+            <header className="masthead mb-auto">
+                <h1 className="text-white">Echo App</h1>
+            </header>
             <main role="main" className="inner cover">
                 <div className="row align-items-center">
-                    <div className="col-md-6">
+                    <div className="col-md-6 text-center font-weight-normal">
+                    <h4>Type Something</h4>
                         <InputForm
                             message={message}
                             onInputChange={onInputChange}
@@ -49,6 +54,8 @@ function App() {
                 </div>
             </main>
             <footer className="mastfoot mt-auto"></footer>
+        </div>
+
         </div>
     );
 }
