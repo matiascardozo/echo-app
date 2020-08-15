@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Intput Form renders snapshot 1`] = `
+<form
+  className="form"
+  onSubmit={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {},
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="form-group"
+  >
+    <input
+      aria-describedby="emailHelp"
+      className="form-control-sm my-1 mr-sm-2"
+      id="messageInput"
+      onChange={
+        [MockFunction] {
+          "calls": Array [
+            Array [
+              Object {
+                "target": "Test",
+              },
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      type="text"
+      value="Hello world"
+    />
+  </div>
+  <button
+    className="btn btn-primary btn-sm my-1"
+    type="submit"
+  >
+    Submit
+  </button>
+</form>
+`;
