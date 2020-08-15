@@ -18,7 +18,7 @@ function App() {
         evt.preventDefault();
         setLoading(true);
         axios
-            .post('', { message })
+            .post('api/', { message })
             .then((response) => setResponses((prevReponses) => [...prevReponses, response.data]))
             .catch((e) => {
                 if (e.response) {
