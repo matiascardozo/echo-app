@@ -1,6 +1,6 @@
 import React from 'react';
 
-function InputForm({message, onInputChange, onSubmit}) {
+function InputForm({ message, onInputChange, onSubmit, loading }) {
     return (
         <form className="form" onSubmit={onSubmit}>
             <div className="form-group">
@@ -13,7 +13,7 @@ function InputForm({message, onInputChange, onSubmit}) {
                     onChange={onInputChange}
                 />
             </div>
-            <button type="submit" className="btn btn-primary btn-sm my-1">
+            <button type="submit" disabled={loading}  className="btn btn-primary btn-sm my-1">
                 Submit
             </button>
         </form>
