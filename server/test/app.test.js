@@ -8,7 +8,7 @@ const wrongPayload = { wrong: 'hello world' };
 describe('Echo Request', () => {
     it('echoes the message', (done) => {
         request(app)
-            .post('/')
+            .post('/api')
             .send(correctPayload)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
@@ -22,7 +22,7 @@ describe('Echo Request', () => {
 
     it('gives error message on failure', (done) => {
         request(app)
-            .post('/')
+            .post('/api')
             .send(wrongPayload)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
